@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- If you do NOT want routing, comment the line below -->
+  <base href="/my/project/">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=1,initial-scale=1, user-scalable=yes">
+  <title>Lit Project</title>
+  <!-- <link rel="icon" href="./img/favicon.ico"> -->
+</head>
+<body>
+  <script>
+    // if you use a root path for routing
+    if(!window.location.pathname.startsWith('/my/project/')) window.location = '/my/project/'
+    // If you do NOT want routing, comment the line above
+  </script>
+  <page-router></page-router>
+  <script type="module" src="/dist/page-router.js"></script>
+  <!-- If you do NOT want routing, comment the two lines above, and uncomment the two lines below -->
+  <!-- <first-file></first-file> -->
+  <!-- <script type="module" src="/dist/views/first-file.js"></script> -->
+</body>
+</html>
