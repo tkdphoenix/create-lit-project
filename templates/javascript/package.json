@@ -28,14 +28,14 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.13",
     "@babel/plugin-proposal-decorators": "^7.12.13",
-    "@commitlint/cli": "^9.0.1",
-    "@open-wc/eslint-config": "^2.0.0",
+    "@commitlint/cli": "^13.1.0",
+    "@open-wc/eslint-config": "^4.3.0",
     "@snowpack/plugin-babel": "^2.1.6",
     "@snowpack/plugin-dotenv": "^2.0.5",
-    "commitlint": "^9.0.1",
+    "commitlint": "^13.1.0",
     "eslint": "^7.20.0",
     "husky": "^1.0.0",
-    "lint-staged": "^8.0.0",
+    "lint-staged": "^11.1.1",
     "prettier": "^2.2.1",
     "snowpack": "^3.0.11"
   },

@@ -5,13 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch",
-    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path ./tools/.eslintignore",
-    "format:prettier": "prettier \"**/*.js\" --write --ignore-path ./tools/.prettierignore",
-    "format": "npm run format:eslint && npm run format:prettier",
-    "lint:eslint": "eslint --ext .js,.html . --ignore-path ./tools/.eslintignore",
-    "lint:prettier": "prettier \"**/*.js\" --check --ignore-path ./tools/.prettierignore",
-    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "prettier \"**/*.js\" --write --ignore-path ./tools/.prettierignore",
+    "lint": "eslint --ext .js,.html . --ignore-path ./tools/.eslintignore",
+    "start": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "npx npm-check -u"
   },
@@ -22,14 +18,21 @@
     "lit-element": "^2.4.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.0.1",
-    "@open-wc/eslint-config": "^2.0.0",
-    "commitlint": "^9.0.1",
+    "@commitlint/cli": "^13.1.0",
+    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "@open-wc/eslint-config": "^4.3.0",
+    "@open-wc/testing": "^2.5.33",
+    "@open-wc/testing-karma": "^4.0.9",
+    "@types/mocha": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "commitlint": "^13.1.0",
     "eslint": "^7.20.0",
     "husky": "^1.0.0",
-    "lint-staged": "^8.0.0",
+    "lint-staged": "^11.1.1",
+    "mocha": "^9.0.3",
     "prettier": "^2.2.1",
-    "typescript": "^3.3.3333"
+    "typescript": "^4.3.5"
   },
   "eslintConfig": {
     "extends": [
