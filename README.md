@@ -8,6 +8,12 @@ A Node.js project that runs a script based on options that the user selects to s
 
 `npm run start`
 
+## Instructions to link this script locally as a node command
+
+From within the root directory of this project, type `npm link` so that it can be recongized as a global install so you can use it. 
+
+Once this command is run, go to the empty directory that you have created for your new project, and from inside that directory type `create-lit-project`. Answer the questions and the wizard will help you to choose options for your project.
+
 ## Snowpack
 
 This project uses Snowpack by default to run the development server and to bundle the project for launch. Read more about [Snowpack ❄️](https://www.snowpack.dev/)
