@@ -5,15 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "build": "snowpack build",
-    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path ./tools/.eslintignore",
-    "format:prettier": "prettier \"**/*.js\" --write --ignore-path ./tools/.prettierignore",
-    "format": "npm run format:eslint && npm run format:prettier",
-    "lint:eslint": "eslint --ext .js,.html . --ignore-path ./tools/.eslintignore",
-    "lint:prettier": "prettier \"**/*.js\" --check --ignore-path ./tools/.prettierignore",
-    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "prettier \"**/*.js\" --write --ignore-path ./tools/.prettierignore",
+    "lint": "eslint --ext .js,.html . --ignore-path ./tools/.eslintignore",
     "start": "snowpack dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update": "npx npm-check -u"
+    "update": "npx npm-check -u",
+    "prepare": "husky install"
   },
   "vaadin": {
     "disableUsageStatistics": true
@@ -28,37 +25,28 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.13",
     "@babel/plugin-proposal-decorators": "^7.12.13",
-    "@commitlint/cli": "^13.1.0",
     "@open-wc/eslint-config": "^4.3.0",
     "@snowpack/plugin-babel": "^2.1.6",
     "@snowpack/plugin-dotenv": "^2.0.5",
-    "commitlint": "^13.1.0",
     "eslint": "^7.20.0",
-    "husky": "^1.0.0",
-    "lint-staged": "^11.1.1",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
     "prettier": "^2.2.1",
-    "snowpack": "^3.0.11"
+    "snowpack": "^3.8.6"
+  },
+  "engines": {
+    "node": ">=14.17.5",
+    "npm": ">=7.20.6"
   },
   "eslintConfig": {
     "extends": [
       "./tools/.eslintrc.js"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "./tools/commitlint.config"
+      "prettier --write --ignore-path ./tools/.prettierignore",
+      "eslint --fix --ignore-path ./tools/.eslintignore"
     ]
   },
   "prettier": "./tools/prettier.config"

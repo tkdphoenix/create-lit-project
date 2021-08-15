@@ -11,20 +11,16 @@
     "access": "restricted"
   },
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "cypress:open": "cypress open",
-    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path ./tools/.eslintignore",
-    "format:prettier": "prettier \"**/*.js\" --write --ignore-path ./tools/.prettierignore",
-    "format": "npm run format:eslint && npm run format:prettier",
-    "lint:eslint": "eslint --ext .js,.html . --ignore-path ./tools/.eslintignore",
-    "lint:prettier": "prettier \"**/*.js\" --check --ignore-path ./tools/.prettierignore",
-    "lint": "npm run lint:eslint && npm run lint:prettier",
-    "start": "webpack-dev-server --history-api-fallback --hot --inline --config ./tools/webpack.dev.js",
+    "format": "prettier \"**/*.js\" --write --ignore-path ./tools/.prettierignore",
+    "lint": "eslint --ext .js,.html . --ignore-path ./tools/.eslintignore",
+    "prepare": "husky install",
+    "start": "npm run prepare && webpack-dev-server --history-api-fallback --hot --inline --config ./tools/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "npx npm-check -u"
   },
   "repository": {
-    "type": "Git"
+    "type": "Git",
+    "url": "https://github.com/tkdphoenix/create-lit-project"
   },
   "keywords": [
     "cli",
@@ -34,43 +30,34 @@
   "license": "ISC",
   "dependencies": {
     "arg": "^5.0.0",
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.2",
     "esm": "^3.2.25",
-    "execa": "^5.0.0",
-    "faker": "^5.4.0",
+    "execa": "^5.1.1",
+    "faker": "^5.5.3",
     "inquirer": "^7.3.3",
     "listr": "^0.14.3",
     "ncp": "^2.0.0",
     "pkg-install": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-plugin": "^7.12.13",
-    "@commitlint/cli": "^11.0.0",
-    "@open-wc/eslint-config": "^4.2.0",
-    "commitlint": "^11.0.0",
-    "conventional-changelog-conventionalcommits": "^4.5.0",
-    "eslint": "^7.20.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-lit": "^1.3.0",
-    "husky": "^5.0.9",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1"
+    "@babel/eslint-plugin": "^7.14.5",
+    "@open-wc/eslint-config": "^4.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-lit": "^1.5.1",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2"
   },
   "eslintConfig": {
     "extends": [
       "./tools/.eslintrc.js"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
-      "prettier --write"
+      "prettier --write --ignore-path ./tools/.prettierignore",
+      "eslint --fix --ignore-path ./tools/.eslintignore"
     ]
   },
   "commitlint": {

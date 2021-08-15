@@ -4,3 +4,4 @@ node_modules/
 images/
 *.md
 coverage/
+*.d.ts
